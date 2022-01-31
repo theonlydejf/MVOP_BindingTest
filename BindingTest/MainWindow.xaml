@@ -7,13 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <UniformGrid Columns="2">
+        <UniformGrid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Margin" Value="0 0 0 10"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="Padding" Value="1"/>
+            </Style>
+        </UniformGrid.Resources>
         <StackPanel Margin="5">
-            <Label Content="Jméno" Padding="0"/>
+            <Label Content="Jméno"/>
             <TextBox x:Name="NameTxt"/>
+
+            <Label Content="Rok narození"/>
+            <TextBox x:Name="BirthYearTxt"/>
+
+            <Label Content="Pracovní pozice"/>
+            <TextBox x:Name="PositionTxt"/>
         </StackPanel>
+
         <StackPanel Margin="5">
-            <Label Content="Příjmení" Padding="0"/>
+            <Label Content="Příjmení"/>
             <TextBox x:Name="SurenameTxt"/>
+
+            <Label Content="Nejvyšší dokončené vzdělání"/>
+            <TextBox x:Name="EducationTxt"/>
+
+            <Label Content="Hrubý plat"/>
+            <TextBox x:Name="SalaryTxt" Text="{Binding Salary, Mode=TwoWay}"/>
         </StackPanel>
     </UniformGrid>
 </Window>
