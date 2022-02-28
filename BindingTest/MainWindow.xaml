@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BindingTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Closing="Window_Closing">
     <UniformGrid Columns="2">
         <UniformGrid.Resources>
             <Style TargetType="TextBox">
@@ -17,24 +18,30 @@
         </UniformGrid.Resources>
         <StackPanel Margin="5">
             <Label Content="Jméno"/>
-            <TextBox x:Name="NameTxt"/>
+            <TextBox x:Name="NameTxt" Text="{Binding Jmeno, Mode=TwoWay}"/>
 
             <Label Content="Rok narození"/>
-            <TextBox x:Name="BirthYearTxt"/>
+            <TextBox x:Name="BirthYearTxt" Text="{Binding RokNarozeni, Mode=TwoWay}"/>
 
             <Label Content="Pracovní pozice"/>
-            <TextBox x:Name="PositionTxt"/>
+            <TextBox x:Name="PositionTxt" Text="{Binding Pozice, Mode=TwoWay}"/>
         </StackPanel>
 
         <StackPanel Margin="5">
             <Label Content="Příjmení"/>
-            <TextBox x:Name="SurenameTxt"/>
+            <TextBox x:Name="SurenameTxt" Text="{Binding Prijmeni, Mode=TwoWay}"/>
 
             <Label Content="Nejvyšší dokončené vzdělání"/>
-            <TextBox x:Name="EducationTxt"/>
+            <ComboBox x:Name="EducationCombo" Margin="0 0 0 10" Text="{Binding Vzdelani, Mode=OneWayToSource}">
+                <ComboBoxItem Content="ZŠ"/>
+                <ComboBoxItem Content="SŠ"/>
+                <ComboBoxItem Content="VŠ"/>
+            </ComboBox>
 
             <Label Content="Hrubý plat"/>
-            <TextBox x:Name="SalaryTxt" Text="{Binding Salary, Mode=TwoWay}"/>
+            <TextBox x:Name="SalaryTxt" Text="{Binding Plat, Mode=TwoWay}"/>
+            
+            <Button Height="21" Width="80" Content="Save" HorizontalAlignment="Right" Click="Button_Click"/>
         </StackPanel>
     </UniformGrid>
 </Window>
